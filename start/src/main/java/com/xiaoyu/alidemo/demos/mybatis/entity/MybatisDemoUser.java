@@ -16,8 +16,10 @@
  */
 package com.xiaoyu.alidemo.demos.mybatis.entity;
 
-import java.io.Serializable;
+import lombok.Data;
 
+import java.io.Serializable;
+@Data
 public class MybatisDemoUser implements Serializable {
 
     /**
@@ -28,7 +30,7 @@ public class MybatisDemoUser implements Serializable {
     /**
      * 用户名
      */
-    private String username;
+    private String name;
 
     /**
      * 密码
@@ -36,27 +38,4 @@ public class MybatisDemoUser implements Serializable {
     private String password;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
