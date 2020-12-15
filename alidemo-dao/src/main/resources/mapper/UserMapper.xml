@@ -6,18 +6,18 @@
 
     <select id="getByName" parameterType="string" resultType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
         SELECT *
-        FROM users
+        FROM t_broadcast_resident
         WHERE name = #{value}
     </select>
 
     <select id="getById" parameterType="long" resultType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
         SELECT *
-        FROM users
+        FROM t_broadcast_resident
         WHERE id = #{value}
     </select>
 
     <insert id="insert" parameterType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
-        INSERT INTO users(name, age) VALUES (#{name}, #{age})
+        INSERT INTO t_broadcast_resident(name, age) VALUES (#{name}, #{age})
         <selectKey resultType="java.lang.Long" keyProperty="id">
             SELECT LAST_INSERT_ID() AS ID
         </selectKey>
