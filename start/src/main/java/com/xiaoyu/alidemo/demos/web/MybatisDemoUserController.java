@@ -14,16 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiaoyu.alidemo.demos.mybatis.controller;
+package com.xiaoyu.alidemo.demos.web;
 
-import java.util.List;
-
+import com.xiaoyu.alidemo.demos.mybatis.entity.MybatisDemoUser;
+import com.xiaoyu.alidemo.demos.mybatis.mapper.MybatisDemoUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xiaoyu.alidemo.demos.mybatis.entity.MybatisDemoUser;
-import com.xiaoyu.alidemo.demos.mybatis.mapper.MybatisDemoUserMapper;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -34,7 +33,7 @@ public class MybatisDemoUserController {
 
     // http://127.0.0.1:8080/user/findAll
     @RequestMapping("/findAll")
-    public List<MybatisDemoUser> findAll(){
+    public List<MybatisDemoUser> findAll() {
         return mybatisDemoUserMapper.findAll();
     }
 
