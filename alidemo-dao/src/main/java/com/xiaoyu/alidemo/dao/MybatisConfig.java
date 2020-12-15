@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiaoyu.alidemo.demos.mybatis.config;
+package com.xiaoyu.alidemo.dao;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,8 @@ import org.springframework.context.annotation.Configuration;
  *
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-@MapperScan("com.xiaoyu.alidemo.demos.mybatis")
-public class MybatisDemoConfig {
+
+@MapperScan("com.xiaoyu.alidemo.dao.mapper")
+public class MybatisConfig {
 
 }
