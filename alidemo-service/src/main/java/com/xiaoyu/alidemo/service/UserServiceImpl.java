@@ -1,11 +1,11 @@
 package com.xiaoyu.alidemo.service;
 
+import com.xiaoyu.alidemo.dao.mapper.ActionUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.stereotype.Component;
 
 import com.xiaoyu.alidemo.dao.dataobject.UserDO;
-import com.xiaoyu.alidemo.dao.mapper.UserMapper;
 import com.xiaoyu.alidemo.api.UserService;
 import com.xiaoyu.alidemo.api.model.UserModel;
 
@@ -16,12 +16,12 @@ import com.xiaoyu.alidemo.api.model.UserModel;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private ActionUserMapper actionUserMapper;
 
     private static final BeanCopier copier = BeanCopier.create(UserModel.class, UserDO.class, false);
 
     public String getUserName(Long id) {
-        UserDO userDO = userMapper.getById(id);
+        UserDO userDO = actionUserMapper.getById(id);
         return userDO != null ? userDO.getName() : null;
     }
 
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         UserDO userDO = new UserDO();
         copier.copy(user, userDO, null);
 
-        Long id = userMapper.insert(userDO);
+        Long id = actionUserMapper.insert(userDO);
         user.setId(id);
         return user;
     }

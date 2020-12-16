@@ -1,4 +1,4 @@
-package com.xiaoyu.alidemo.dao.mapper;
+package com.xiaoyu.alidemo.dao.mapper.base;
 
 import com.xiaoyu.alidemo.dao.dataobject.UserDO;
 import org.apache.ibatis.annotations.Mapper;
