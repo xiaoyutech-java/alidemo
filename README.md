@@ -9,3 +9,9 @@ Application里添加@MapperScan不会覆盖掉其他class里的@MapperScan，相
 
 mybatis.mapper-locations=classpath*:mapper/*Mapper.xml 用于查找对应的 mapper xml文件
 如果是有子文件夹，需使用mybatis.mapper-locations=classpath*:mapper/**/*Mapper.xml
+
+
+子模块中 用@PropertySource(“classpath:application.properties”)注解主动去加载application.properties,不过是在mybatis加载后才加载的，这里只是当做普通变量加载。
+
+在Properties文件中，分隔符有两种存在方式：“=”（等于号）、“:”（英文冒号）
+在Properties文件中，第一次出现的字符即为分割符，往后出现不需要转义

@@ -17,7 +17,9 @@
 package com.xiaoyu.alidemo.dao;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * 使用MapperScan批量扫描所有的Mapper接口
@@ -25,7 +27,9 @@ import org.springframework.context.annotation.Configuration;
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Configuration
+@PropertySource("classpath:application.properties")
 @MapperScan("com.xiaoyu.alidemo.dao.mapper")
 public class MybatisConfig {
-
+    @Value("${mybatis.mapper-locations}")
+    public String mu;
 }
