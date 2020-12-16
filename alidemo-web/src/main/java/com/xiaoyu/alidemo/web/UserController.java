@@ -19,7 +19,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
+//    http://127.0.0.1:8080/username?id=48
     @RequestMapping("/username")
     public String getUserName(@RequestParam("id") Long id) {
         return userService.getUserName(id);

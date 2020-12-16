@@ -20,13 +20,14 @@ import java.util.List;
 
 import com.xiaoyu.alidemo.demos.mybatis.entity.MybatisDemoUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * 指定这是一个操作数据库的mapper
  *
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-@Mapper
+//@Mapper
 public interface MybatisDemoUserMapper {
     List<MybatisDemoUser> findAll();
 }

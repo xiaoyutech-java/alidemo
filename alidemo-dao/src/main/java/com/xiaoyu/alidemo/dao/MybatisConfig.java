@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Configuration;
  *
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-
+@Configuration
 @MapperScan("com.xiaoyu.alidemo.dao.mapper")
 public class MybatisConfig {
 
