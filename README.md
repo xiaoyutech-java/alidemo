@@ -8,4 +8,4 @@ Application里添加@MapperScan不会覆盖掉其他class里的@MapperScan，相
 
 
 mybatis.mapper-locations=classpath*:mapper/*Mapper.xml 用于查找对应的 mapper xml文件
-
+如果是有子文件夹，需使用mybatis.mapper-locations=classpath*:mapper/**/*Mapper.xml
