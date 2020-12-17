@@ -23,8 +23,6 @@ public class UserServiceImpl implements UserService {
     private static final BeanCopier copier = BeanCopier.create(UserModel.class, UserDO.class, false);
 
     public String getUserName(Long id) {
-
-
         UserDO userDO = actionUserMapper.getById(id);
         return userDO != null ? userDO.getName() : null;
     }
