@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiaoyu.alidemo.demos.mybatis.mapper;
+package com.xiaoyu.alidemo.client.mapper;
+
+import com.xiaoyu.alidemo.client.daoobject.MybatisDemoUser;
 
 import java.util.List;
 
-import com.xiaoyu.alidemo.demos.mybatis.entity.MybatisDemoUser;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
 
 /**
  * 指定这是一个操作数据库的mapper

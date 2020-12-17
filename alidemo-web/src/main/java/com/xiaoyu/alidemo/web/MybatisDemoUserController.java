@@ -14,28 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiaoyu.alidemo.demos.mybatis.entity;
+package com.xiaoyu.alidemo.web;
 
-import lombok.Data;
+import com.xiaoyu.alidemo.api.ClientService;
+import com.xiaoyu.alidemo.client.daoobject.MybatisDemoUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.io.Serializable;
-@Data
-public class MybatisDemoUser implements Serializable {
+import java.util.List;
 
-    /**
-     * 编号
-     */
-    private Long id;
+@RestController
+@RequestMapping("/user")
+public class MybatisDemoUserController {
 
-    /**
-     * 用户名
-     */
-    private String name;
+    @Autowired
+    private ClientService clientService;
 
-    /**
-     * 密码
-     */
-    private String password;
-
+    // http://127.0.0.1:8080/user/findAll
+    @RequestMapping("/findAll")
+    public List<MybatisDemoUser> findAll() {
+        return clientService.findAll();
+    }
 
 }

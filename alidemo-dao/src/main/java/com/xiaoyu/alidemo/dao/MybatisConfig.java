@@ -17,7 +17,6 @@
 package com.xiaoyu.alidemo.dao;
 
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
@@ -27,9 +26,8 @@ import org.springframework.context.annotation.PropertySource;
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:database.properties")
 @MapperScan("com.xiaoyu.alidemo.dao.mapper")
 public class MybatisConfig {
-    @Value("${mybatis.mapper-locations}")
-    public String mu;
+
 }

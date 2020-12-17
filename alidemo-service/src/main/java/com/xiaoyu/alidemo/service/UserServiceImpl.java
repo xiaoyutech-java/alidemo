@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     public String getUserName(Long id) {
 
-        System.out.println(mybatisConfig.mu);
+
         UserDO userDO = actionUserMapper.getById(id);
         return userDO != null ? userDO.getName() : null;
     }

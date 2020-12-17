@@ -15,3 +15,6 @@ mybatis.mapper-locations=classpath*:mapper/*Mapper.xml 用于查找对应的 map
 
 在Properties文件中，分隔符有两种存在方式：“=”（等于号）、“:”（英文冒号）
 在Properties文件中，第一次出现的字符即为分割符，往后出现不需要转义
+
+
+对于自定义数据源，java代码里配置的

@@ -21,6 +21,7 @@
 
     <modules>
         <module>alidemo-api</module>
+        <module>alidemo-client</module>
         <module>alidemo-dao</module>
         <module>alidemo-manager</module>
         <module>alidemo-service</module>
