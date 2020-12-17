@@ -6,7 +6,7 @@ import com.xiaoyu.alidemo.api.model.UserModel;
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
-public interface UserService {
+public interface DaoService {
 
     String getUserName(Long id);
 

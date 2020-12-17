@@ -36,7 +36,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @MapperScan(basePackages = {"com.xiaoyu.alidemo.client.mapper"}, sqlSessionFactoryRef = "daoSqlSessionFactory")
-public class MybatisDemoConfig {
+public class MybatisConfig {
     @Primary
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")

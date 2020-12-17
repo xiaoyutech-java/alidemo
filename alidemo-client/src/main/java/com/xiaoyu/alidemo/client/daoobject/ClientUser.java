@@ -20,7 +20,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 @Data
-public class MybatisDemoUser implements Serializable {
+public class ClientUser implements Serializable {
 
     /**
      * 编号

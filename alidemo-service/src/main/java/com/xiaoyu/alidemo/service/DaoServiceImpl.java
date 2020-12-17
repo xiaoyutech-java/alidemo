@@ -1,6 +1,6 @@
 package com.xiaoyu.alidemo.service;
 
-import com.xiaoyu.alidemo.api.UserService;
+import com.xiaoyu.alidemo.api.DaoService;
 import com.xiaoyu.alidemo.api.model.UserModel;
 import com.xiaoyu.alidemo.dao.dataobject.UserDO;
 import com.xiaoyu.alidemo.dao.mapper.ActionUserMapper;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Component
-public class UserServiceImpl implements UserService {
+public class DaoServiceImpl implements DaoService {
 
     @Autowired
     private ActionUserMapper actionUserMapper;

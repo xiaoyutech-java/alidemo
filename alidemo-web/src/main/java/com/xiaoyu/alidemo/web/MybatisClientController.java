@@ -17,7 +17,7 @@
 package com.xiaoyu.alidemo.web;
 
 import com.xiaoyu.alidemo.api.ClientService;
-import com.xiaoyu.alidemo.client.daoobject.MybatisDemoUser;
+import com.xiaoyu.alidemo.client.daoobject.ClientUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,14 +26,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/client")
-public class MybatisDemoUserController {
+public class MybatisClientController {
 
     @Autowired
     private ClientService clientService;
 
     // http://127.0.0.1:8080/client/all
     @RequestMapping("/all")
-    public List<MybatisDemoUser> findAll() {
+    public List<ClientUser> findAll() {
         return clientService.findAll();
     }
 

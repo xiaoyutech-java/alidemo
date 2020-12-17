@@ -16,7 +16,7 @@
  */
 package com.xiaoyu.alidemo.client.mapper;
 
-import com.xiaoyu.alidemo.client.daoobject.MybatisDemoUser;
+import com.xiaoyu.alidemo.client.daoobject.ClientUser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -29,5 +29,5 @@ import java.util.List;
  */
 @Mapper
 public interface MybatisDemoUserMapper {
-    List<MybatisDemoUser> findAll();
+    List<ClientUser> findAll();
 }
