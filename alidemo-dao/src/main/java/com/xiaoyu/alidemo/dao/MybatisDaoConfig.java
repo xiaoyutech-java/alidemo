@@ -24,6 +24,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
@@ -36,7 +37,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource("classpath:database.properties")
 @MapperScan(basePackages = {"com.xiaoyu.alidemo.dao.mapper"}, sqlSessionFactoryRef = "daoSqlSessionFactory")
-public class MybatisConfig {
+public class MybatisDaoConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
