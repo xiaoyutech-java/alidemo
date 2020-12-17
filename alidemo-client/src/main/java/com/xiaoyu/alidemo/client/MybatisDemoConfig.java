@@ -1,4 +1,5 @@
-package com.xiaoyu.alidemo.client;///*
+//package com.xiaoyu.alidemo.client;
+///*
 // * Licensed to the Apache Software Foundation (ASF) under one or more
 // * contributor license agreements.  See the NOTICE file distributed with
 // * this work for additional information regarding copyright ownership.
@@ -14,7 +15,7 @@ package com.xiaoyu.alidemo.client;///*
 // * See the License for the specific language governing permissions and
 // * limitations under the License.
 // */
-//package com.xiaoyu.alidemo.demos.mybatis.config;
+//
 //
 //import org.mybatis.spring.annotation.MapperScan;
 //import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,7 @@ package com.xiaoyu.alidemo.client;///*
 // * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
 // */
 //@Configuration
-//@MapperScan("com.xiaoyu.alidemo.demos.mybatis.mapper")
+//@MapperScan("com.xiaoyu.alidemo.client.mapper")
 //public class MybatisDemoConfig {
 //
 //}

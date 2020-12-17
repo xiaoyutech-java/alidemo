@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/client")
 public class MybatisDemoUserController {
 
     @Autowired
     private ClientService clientService;
 
-    // http://127.0.0.1:8080/user/findAll
-    @RequestMapping("/findAll")
+    // http://127.0.0.1:8080/client/all
+    @RequestMapping("/all")
     public List<MybatisDemoUser> findAll() {
         return clientService.findAll();
     }
