@@ -35,7 +35,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @PropertySource("classpath:database.properties")
-@MapperScan("com.xiaoyu.alidemo.dao.mapper")
+@MapperScan(basePackages = {"com.xiaoyu.alidemo.dao.mapper"}, sqlSessionFactoryRef = "daoSqlSessionFactory")
 public class MybatisConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
@@ -43,7 +43,7 @@ public class MybatisConfig {
         return new DruidDataSource();
     }
 
-    @Bean
+    @Bean(name = "daoSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
