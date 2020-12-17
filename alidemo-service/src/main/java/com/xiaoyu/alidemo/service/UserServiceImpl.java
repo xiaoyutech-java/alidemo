@@ -2,7 +2,6 @@ package com.xiaoyu.alidemo.service;
 
 import com.xiaoyu.alidemo.api.UserService;
 import com.xiaoyu.alidemo.api.model.UserModel;
-import com.xiaoyu.alidemo.dao.MybatisConfig;
 import com.xiaoyu.alidemo.dao.dataobject.UserDO;
 import com.xiaoyu.alidemo.dao.mapper.ActionUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private MybatisConfig mybatisConfig;
     @Autowired
     private ActionUserMapper actionUserMapper;
 
