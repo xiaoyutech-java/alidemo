@@ -1,3 +1,4 @@
+```
 mybatis错误： Invalid bound statement (not found) 有感
 
 @MapperScan 会导致@Mapper注解失效，即无需配置@Mapper，即使配置了也没用
@@ -24,3 +25,4 @@ mybatis.mapper-locations=classpath*:mapper/*Mapper.xml 用于查找对应的 map
 
 @Reource（默认按名称装配，当找不到与名称匹配的bean才会按类型装配） 
 @Autowired（默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用）
+```
