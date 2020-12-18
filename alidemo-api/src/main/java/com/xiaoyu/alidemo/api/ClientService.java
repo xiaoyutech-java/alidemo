@@ -1,9 +1,9 @@
 package com.xiaoyu.alidemo.api;
 
-import com.xiaoyu.alidemo.client.dataobject.ClientUserDO;
+import com.xiaoyu.alidemo.api.model.ClientModel;
 
 import java.util.List;
 
 public interface ClientService {
-    List<ClientUserDO> findAll();
+    List<ClientModel> findAll();
 }
