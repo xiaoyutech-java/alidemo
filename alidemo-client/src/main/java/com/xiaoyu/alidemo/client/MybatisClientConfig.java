@@ -20,11 +20,12 @@ package com.xiaoyu.alidemo.client;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
@@ -35,26 +36,34 @@ import javax.sql.DataSource;
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
 @Configuration
-@MapperScan(basePackages = {"com.xiaoyu.alidemo.client.mapper"}, sqlSessionFactoryRef = "daoSqlSessionFactory")
+@MapperScan(basePackages = {"com.xiaoyu.alidemo.client.mapper"},
+        sqlSessionFactoryRef = "clientSqlSessionFactory",
+        sqlSessionTemplateRef = "clientSqlSessionTemplate")
 public class MybatisClientConfig {
-    @Primary
-    @Bean
+
+
+    @Bean("clientDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return new DruidDataSource();
     }
 
-    @Primary
-    @Bean(name = "daoSqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
+
+    @Bean(name = "clientSqlSessionFactory")
+    public SqlSessionFactory clientSqlSessionFactory(@Qualifier("clientDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(dataSource);
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setMapUnderscoreToCamelCase(true);
         configuration.setUseGeneratedKeys(true);
         configuration.setDefaultStatementTimeout(30);
         sessionFactory.setConfiguration(configuration);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/**/*Mapper.xml"));
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*Mapper.xml"));
         return sessionFactory.getObject();
+    }
+
+    @Bean(name = "clientSqlSessionTemplate")
+    public SqlSessionTemplate daoSqlSessionTemplate(@Qualifier("clientSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

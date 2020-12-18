@@ -19,12 +19,14 @@ package com.xiaoyu.alidemo.dao;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
@@ -36,18 +38,21 @@ import javax.sql.DataSource;
  */
 @Configuration
 @PropertySource("classpath:database.properties")
-@MapperScan(basePackages = {"com.xiaoyu.alidemo.dao.mapper"}, sqlSessionFactoryRef = "daoSqlSessionFactory")
+@MapperScan(basePackages = {"com.xiaoyu.alidemo.dao.mapper"},
+        sqlSessionFactoryRef = "daoSqlSessionFactory",
+        sqlSessionTemplateRef = "daoSqlSessionTemplate")
 public class MybatisDaoConfig {
-    @Bean
+    @Primary   // 表示这个数据源是默认数据源, 这个注解必须要加，因为不加的话spring将分不清楚那个为主数据源（默认数据源）
+    @Bean("daoDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return new DruidDataSource();
     }
 
     @Bean(name = "daoSqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
+    public SqlSessionFactory clientSqlSessionFactory(@Qualifier("daoDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(dataSource);
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setMapUnderscoreToCamelCase(true);
         configuration.setUseGeneratedKeys(true);
@@ -55,5 +60,10 @@ public class MybatisDaoConfig {
         sessionFactory.setConfiguration(configuration);
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*Mapper.xml"));
         return sessionFactory.getObject();
+    }
+
+    @Bean(name = "daoSqlSessionTemplate")
+    public SqlSessionTemplate daoSqlSessionTemplate(@Qualifier("daoSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+        return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

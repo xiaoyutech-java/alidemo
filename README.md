@@ -17,4 +17,9 @@ mybatis.mapper-locations=classpath*:mapper/*Mapper.xml 用于查找对应的 map
 在Properties文件中，第一次出现的字符即为分割符，往后出现不需要转义
 
 
-对于自定义数据源，java代码里配置的sessionFactory.setMapperLocations，会导致mybatis.mapper-locations失效，需要在自己模块
+对于自定义数据源，java代码里配置的sessionFactory.setMapperLocations，会导致mybatis.mapper-locations失效，
+
+多模块数据源配置
+
+@Reource（默认按名称装配，当找不到与名称匹配的bean才会按类型装配） 
+@Autowired（默认按类型装配，如果我们想使用按名称装配，可以结合@Qualifier注解一起使用）
