@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xiaoyu.alidemo.client.daoobject;
+package com.xiaoyu.alidemo.client.dataobject;
 
 import lombok.Data;
 
 import java.io.Serializable;
 @Data
-public class ClientUser implements Serializable {
+public class ClientUserDO implements Serializable {
 
     /**
      * 编号

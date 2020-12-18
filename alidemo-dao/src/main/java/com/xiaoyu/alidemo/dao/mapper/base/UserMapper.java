@@ -1,7 +1,6 @@
 package com.xiaoyu.alidemo.dao.mapper.base;
 
-import com.xiaoyu.alidemo.dao.dataobject.UserDO;
-import org.apache.ibatis.annotations.Mapper;
+import com.xiaoyu.alidemo.dao.dataobject.DaoUserDO;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
@@ -9,9 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 //@Mapper
 public interface UserMapper {
 
-    UserDO getByName(String name);
+    DaoUserDO getByName(String name);
 
-    UserDO getById(Long id);
+    DaoUserDO getById(Long id);
 
-    Long insert(UserDO userDO);
+    Long insert(DaoUserDO daoUserDO);
 }

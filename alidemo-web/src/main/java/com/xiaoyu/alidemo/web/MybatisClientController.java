@@ -17,7 +17,7 @@
 package com.xiaoyu.alidemo.web;
 
 import com.xiaoyu.alidemo.api.ClientService;
-import com.xiaoyu.alidemo.client.daoobject.ClientUser;
+import com.xiaoyu.alidemo.client.dataobject.ClientUserDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +33,7 @@ public class MybatisClientController {
 
     // http://127.0.0.1:8080/client/all
     @RequestMapping("/all")
-    public List<ClientUser> findAll() {
+    public List<ClientUserDO> findAll() {
         return clientService.findAll();
     }
 

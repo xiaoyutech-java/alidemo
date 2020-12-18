@@ -4,19 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaoyu.alidemo.dao.mapper.base.UserMapper">
 
-    <select id="getByName" parameterType="string" resultType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
+    <select id="getByName" parameterType="string" resultType="com.xiaoyu.alidemo.dao.dataobject.DaoUserDO">
         SELECT *
         FROM t_broadcast_resident
         WHERE name = #{value}
     </select>
 
-    <select id="getById" parameterType="long" resultType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
+    <select id="getById" parameterType="long" resultType="com.xiaoyu.alidemo.dao.dataobject.DaoUserDO">
         SELECT *
         FROM t_broadcast_resident
         WHERE id = #{value}
     </select>
 
-    <insert id="insert" parameterType="com.xiaoyu.alidemo.dao.dataobject.UserDO">
+    <insert id="insert" parameterType="com.xiaoyu.alidemo.dao.dataobject.DaoUserDO">
         INSERT INTO t_broadcast_resident(name, age) VALUES (#{name}, #{age})
         <selectKey resultType="java.lang.Long" keyProperty="id">
             SELECT LAST_INSERT_ID() AS ID

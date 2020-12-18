@@ -1,8 +1,8 @@
 package com.xiaoyu.alidemo.service;
 
 import com.xiaoyu.alidemo.api.DaoService;
-import com.xiaoyu.alidemo.api.model.UserModel;
-import com.xiaoyu.alidemo.dao.dataobject.UserDO;
+import com.xiaoyu.alidemo.api.model.DaoModel;
+import com.xiaoyu.alidemo.dao.dataobject.DaoUserDO;
 import com.xiaoyu.alidemo.dao.mapper.ActionUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
@@ -17,18 +17,18 @@ public class DaoServiceImpl implements DaoService {
     @Autowired
     private ActionUserMapper actionUserMapper;
 
-    private static final BeanCopier copier = BeanCopier.create(UserModel.class, UserDO.class, false);
+    private static final BeanCopier copier = BeanCopier.create(DaoModel.class, DaoUserDO.class, false);
 
     public String getUserName(Long id) {
-        UserDO userDO = actionUserMapper.getById(id);
-        return userDO != null ? userDO.getName() : null;
+        DaoUserDO daoUserDO = actionUserMapper.getById(id);
+        return daoUserDO != null ? daoUserDO.getName() : null;
     }
 
-    public UserModel addUser(UserModel user) {
-        UserDO userDO = new UserDO();
-        copier.copy(user, userDO, null);
+    public DaoModel addUser(DaoModel user) {
+        DaoUserDO daoUserDO = new DaoUserDO();
+        copier.copy(user, daoUserDO, null);
 
-        Long id = actionUserMapper.insert(userDO);
+        Long id = actionUserMapper.insert(daoUserDO);
         user.setId(id);
         return user;
     }

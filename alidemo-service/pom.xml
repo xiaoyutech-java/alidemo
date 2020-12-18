@@ -29,6 +29,11 @@
             <artifactId>alidemo-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiaoyu</groupId>
+            <artifactId>alidemo-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

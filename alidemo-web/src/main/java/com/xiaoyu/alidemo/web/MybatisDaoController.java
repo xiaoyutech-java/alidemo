@@ -1,7 +1,7 @@
 package com.xiaoyu.alidemo.web;
 
 import com.xiaoyu.alidemo.api.DaoService;
-import com.xiaoyu.alidemo.api.model.UserModel;
+import com.xiaoyu.alidemo.api.model.DaoModel;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +21,7 @@ public class MybatisDaoController {
     private DaoService daoService;
     @Autowired
 private SqlSessionFactory sqlSessionFactory;
-    //    http://127.0.0.1:8080/dao/get?id=48
+    //http://127.0.0.1:8080/dao/get?id=48
     @RequestMapping("/dao/get")
     public String getUserName(@RequestParam("id") Long id) {
         sqlSessionFactory.getConfiguration();
@@ -30,8 +30,8 @@ private SqlSessionFactory sqlSessionFactory;
 
     @RequestMapping("/dao/add")
     @ResponseBody
-    public UserModel addUser(@RequestParam("name") String name, @RequestParam("age") Integer age) {
-        UserModel user = new UserModel();
+    public DaoModel addUser(@RequestParam("name") String name, @RequestParam("age") Integer age) {
+        DaoModel user = new DaoModel();
         user.setName(name);
         user.setAge(age);
         return daoService.addUser(user);
