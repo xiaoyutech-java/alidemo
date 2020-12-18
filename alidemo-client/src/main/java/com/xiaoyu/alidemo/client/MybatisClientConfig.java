@@ -50,7 +50,7 @@ public class MybatisClientConfig {
 
 
     @Bean(name = "clientSqlSessionFactory")
-    public SqlSessionFactory clientSqlSessionFactory(@Qualifier("clientDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("clientDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();

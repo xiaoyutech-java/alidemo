@@ -24,15 +24,16 @@
             <artifactId>alidemo-manager</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.xiaoyu</groupId>
-            <artifactId>alidemo-dao</artifactId>
+            <artifactId>alidemo-client</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.xiaoyu</groupId>
-            <artifactId>alidemo-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>alidemo-dao</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

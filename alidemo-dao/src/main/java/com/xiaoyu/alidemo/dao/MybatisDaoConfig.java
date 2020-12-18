@@ -50,7 +50,7 @@ public class MybatisDaoConfig {
     }
 
     @Bean(name = "daoSqlSessionFactory")
-    public SqlSessionFactory clientSqlSessionFactory(@Qualifier("daoDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("daoDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
@@ -58,7 +58,7 @@ public class MybatisDaoConfig {
         configuration.setUseGeneratedKeys(true);
         configuration.setDefaultStatementTimeout(30);
         sessionFactory.setConfiguration(configuration);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*Mapper.xml"));
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/**/*Mapper.xml"));
         return sessionFactory.getObject();
     }
 
